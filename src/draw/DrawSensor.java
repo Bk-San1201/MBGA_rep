@@ -14,6 +14,9 @@ public class DrawSensor {
     private static int i = 0;
     private static boolean check = false;
     public void draw(ArrayList<Sensor> sensorLists, double[] indi){
+    	for (Sensor s : sensorLists) {
+			s.setDefault();
+		}
         JFrame frame = null;
         for(i=0;i<Config.MAX_LEN;i++){
             if(frame == null){
@@ -52,6 +55,8 @@ public class DrawSensor {
                 frame.setSize((int) Config.W *10, (int) Config.H *10);
                 frame.setVisible(true);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            } else {
+            	frame.repaint();
             }
 
             for(Sensor s : sensorLists){
